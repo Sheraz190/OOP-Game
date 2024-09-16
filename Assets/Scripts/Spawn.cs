@@ -11,12 +11,41 @@ public class Spawn : MonoBehaviour
     public bool isgameOver;
     public static Spawn Instance;
     public GameObject text;
+    public GameObject strong;
+    public GameObject average;
+    public GameObject weak;
     // Start is called before the first frame update
     void Start()
     {
         isgameOver = false;
         Instance = this;
         InvokeRepeating("SpawnBlock", 3.0f, 2.0f);
+        SetPlayerState();
+
+
+
+    }
+    void ResetAll()
+    {
+        weak.gameObject.SetActive(false);
+        average.gameObject.SetActive(false);
+        strong.gameObject.SetActive(false);
+    }
+    void SetPlayerState()
+    {
+        ResetAll();
+        if (GameConstants.OopProjectEnums.PlayerStateCount == 0)
+        {
+            weak.gameObject.SetActive(true);
+        }
+        else if (GameConstants.OopProjectEnums.PlayerStateCount == 1)
+        {
+            average.gameObject.SetActive(true);
+        }
+        else if (GameConstants.OopProjectEnums.PlayerStateCount == 2)
+        {
+            strong.gameObject.SetActive(true);
+        }
         
     }
 

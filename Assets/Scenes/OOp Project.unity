@@ -529,6 +529,9 @@ MonoBehaviour:
   health: 6
   isgameOver: 0
   text: {fileID: 115542233}
+  strong: {fileID: 1737799440}
+  average: {fileID: 608206660}
+  weak: {fileID: 241720749}
 --- !u!1 &608206660
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,7 +962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1737799441
 BoxCollider:
   m_ObjectHideFlags: 0
