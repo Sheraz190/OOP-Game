@@ -16,15 +16,20 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * speed * Time.deltaTime);
+        Move();
+        Destroy();
+    }
 
-        if(transform.position.z<-30)
+ void Move()
+    {
+        transform.Translate(Vector3.back * speed * Time.deltaTime);
+    }
+
+    void Destroy()
+    {
+        if (transform.position.z < -30)
         {
             Destroy(gameObject);
         }
     }
-
-    
-
-
 }

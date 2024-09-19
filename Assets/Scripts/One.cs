@@ -19,11 +19,7 @@ public class One : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)&&isgrounded)
-        {
-            playerRb.AddForce(transform.up*100, ForceMode.Impulse);
-            isgrounded = false;
-        }
+        jump();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -40,7 +36,14 @@ public class One : MonoBehaviour
         }
     }
 
-
+    void jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isgrounded)
+        {
+            playerRb.AddForce(transform.up * 100, ForceMode.Impulse);
+            isgrounded = false;
+        }
+    }
 
 
 }

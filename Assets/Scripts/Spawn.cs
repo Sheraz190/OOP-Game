@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class Spawn : MonoBehaviour
 {
     
@@ -14,6 +14,7 @@ public class Spawn : MonoBehaviour
     public GameObject strong;
     public GameObject average;
     public GameObject weak;
+    public GameObject restart;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,13 +53,9 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-           
-        if(isgameOver)
-        {
-            text.gameObject.SetActive(true);
-        }
+        GameOver();
+       
     }
-
     public void SpawnBlock()
     {
         //Vector3 position = new Vector3(1, 2.5f, 0);
@@ -67,6 +64,19 @@ public class Spawn : MonoBehaviour
         {
             GameObject InstObj = Instantiate(blocks[Random.Range(0, 3)].gameObject);
             InstObj.transform.position = new Vector3(1, InstObj.GetComponent<EnemyMove>().YPos, 0);
+        }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
+    private void GameOver()
+    {
+        if (isgameOver)
+        {
+            text.gameObject.SetActive(true);
+            restart.gameObject.SetActive(true);
         }
     }
 }

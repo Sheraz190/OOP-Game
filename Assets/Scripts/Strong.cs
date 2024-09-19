@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Strong : MonoBehaviour
+public class Strong :MonoBehaviour
 {
     private Rigidbody strongRb;
     private bool ingrounded;
@@ -18,13 +18,10 @@ public class Strong : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && ingrounded)
-        {
-            strongRb.AddForce(transform.up * 10, ForceMode.Impulse);
-            ingrounded = false;
-        }
-  }
+        jump();
+    }
 
+    
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -47,7 +44,14 @@ public class Strong : MonoBehaviour
         }
     }
 
-
+    void jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && ingrounded)
+        {
+            strongRb.AddForce(transform.up * 10, ForceMode.Impulse);
+            ingrounded = false;
+        }
+    }
 
 
 }

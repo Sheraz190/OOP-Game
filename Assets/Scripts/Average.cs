@@ -17,12 +17,9 @@ public class Average : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && ongrounded)
-        {
-            averageRb.AddForce(transform.up * 100, ForceMode.Impulse);
-            ongrounded = false;
-        }
+        jump();  
     }
+
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -43,6 +40,15 @@ public class Average : MonoBehaviour
                     Spawn.Instance.isgameOver = true;
                 }
             }
+        }
+    }
+
+    void jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && ongrounded)
+        {
+            averageRb.AddForce(transform.up * 100, ForceMode.Impulse);
+            ongrounded = false;
         }
     }
 }
